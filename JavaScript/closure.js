@@ -5,26 +5,31 @@ Remeber the data from the last call
 */
 
 //self invoking functions - Immediately ececuted once they are declared!!
-const add = (function(){
-    let count = 0;
-    return function(){
-        return count++;
-    }
+const add = (function () {
+  let count = 0;
+  return function () {
+    return count++;
+  };
 })();
 
 console.log(add()); //0
 console.log(add()); //1
 console.log(add()); //2
 
-
 //Example Closure scope chain
 
-const add1 =function sum(x){
-    return function(y){
-        return function(z){
-            return x+y+z;
-        }
-    }
-}
+const add1 = function sum(x) {
+  return function (y) {
+    return function (z) {
+      return x + y + z;
+    };
+  };
+};
 
-console.log(add1(4)(5)(6));
+const sum1 = function (m) {
+  return function (n) {
+    return m + n;
+  };
+};
+
+console.log(sum1(3)(9));

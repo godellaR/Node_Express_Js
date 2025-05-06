@@ -14,13 +14,11 @@
 //     console.log(err);
 // })
 
-
-const prom3 = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        resolve("Hellowww moto!!");
-        
-    },6000);
-})
+const prom3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Hellowww moto!!");
+  }, 6000);
+});
 
 // prom3.then((val)=>{
 //     console.log(val);
@@ -36,18 +34,20 @@ const prom4 = Promise.reject(45);
 //     console.log(val);
 // })
 
-//Another Example 
+//Another Example
 
-const prom5 = new Promise((resolve,reject)=>{
-    setTimeout(resolve,100,['foo','zoo']);
+const prom5 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, ["foo", "zoo"]);
 });
 
-Promise.all([prom3,prom4,prom5]).then((val)=>{
-    console.log(val);
-}).catch((err)=>{
-    console.log(err)
-})
+Promise.all([prom3, prom4, prom5])
+  .then((val) => {
+    console.log("promise.all", val);
+  })
+  .catch((err) => {
+    console.log("promise.all.err", err);
+  });
 
-Promise.allSettled([prom3,prom4,prom5]).then((val)=>{
-    console.log(val);
-})
+Promise.allSettled([prom3, prom4, prom5]).then((val) => {
+  console.log("promise.any", val);
+});
